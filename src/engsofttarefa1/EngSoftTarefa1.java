@@ -24,7 +24,7 @@ public class EngSoftTarefa1 {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("Stopping Server");
+        System.out.println("Parando Servidor");
         server.stop();
         
     }

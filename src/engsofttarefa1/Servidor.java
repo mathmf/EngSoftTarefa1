@@ -34,18 +34,18 @@ public class Servidor implements Runnable {
                 clientSocket = this.serverSocket.accept();
             } catch (IOException e) {
                 if(isStopped()) {
-                    System.out.println("Server Stopped.") ;
+                    System.out.println("Servidor Parado.") ;
                     return;
                 }
                 throw new RuntimeException(
-                    "Error accepting client connection", e);
+                    "Erro conectando ao cliente", e);
             }
             new Thread(
                 new Conexao(
                     clientSocket, "Multithreaded Server")
             ).start();
         }
-        System.out.println("Server Stopped.") ;
+        System.out.println("Servidor Parado.") ;
     }
 
 
@@ -58,7 +58,7 @@ public class Servidor implements Runnable {
         try {
             this.serverSocket.close();
         } catch (IOException e) {
-            throw new RuntimeException("Error closing server", e);
+            throw new RuntimeException("Erro parando o servidor", e);
         }
     }
 
@@ -66,7 +66,7 @@ public class Servidor implements Runnable {
         try {
             this.serverSocket = new ServerSocket(this.serverPort);
         } catch (IOException e) {
-            throw new RuntimeException("Cannot open port 8080", e);
+            throw new RuntimeException("Não pode abrir porta 8080", e);
         }
     }
 }
